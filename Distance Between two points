@@ -1,0 +1,76 @@
+/* 
+To take two point coordinates as input and display distance between those two points 
+by using class & friend function
+ */
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+class point{
+    int x,y,count=0;
+    public:
+        void dot(int a, int b){
+            x=a;
+            y=b;
+            count++;
+        }
+        friend void dist(point , point);
+
+        void display_point(){
+            cout<<"The point "<<count<<" has co-ordinates are : ( "<<x<<" , "<<y<<" )"<<endl;
+        }
+};
+
+void dist(point o1 , point o2){
+    float net;
+    net=sqrt((pow(o1.x-o2.x,2))+pow(o1.y-o2.y,2));
+    cout<<"Distance betweem given two points is : "<<net;
+}
+
+int main(){
+
+    int m,n,o,p;
+    cout<<"Enter co-ordinats of first point : ";
+    cin>>m>>n;
+    cout<<"Enter co-ordinates of second point : ";
+    cin>>o>>p;
+
+    point p1;
+    p1.dot(m,n);
+    p1.display_point();
+
+    point p2;
+    p2.dot(o,p);
+    p2.display_point();
+
+    dist(p1,p2);
+
+
+    return 0;
+}
+
+
+
+output :
+
+(1)
+Enter co-ordinats of first point : -3 0
+Enter co-ordinates of second point : 9 -2
+The point 1 has co-ordinates are : ( -3 , 0 )
+The point 1 has co-ordinates are : ( 9 , -2 )
+Distance betweem given two points is : 12.1655
+
+(2)
+Enter co-ordinats of first point : 0 0 
+Enter co-ordinates of second point : 3 4
+The point 1 has co-ordinates are : ( 0 , 0 )
+The point 1 has co-ordinates are : ( 3 , 4 )
+Distance betweem given two points is : 5
+
+(3)
+Enter co-ordinats of first point : 1 2
+Enter co-ordinates of second point : 4 7
+The point 1 has co-ordinates are : ( 1 , 2 )
+The point 1 has co-ordinates are : ( 4 , 7 )
+Distance betweem given two points is : 5.83095
