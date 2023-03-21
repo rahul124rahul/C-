@@ -1,0 +1,61 @@
+// // SIMPLE CALCULATER USING SWITCHCASE SELECTION STATEMENT
+
+#include<iostream>
+using namespace std;
+int main(){
+	float a,b;
+	char c;
+	cout<<"Enter a 1st no. : ";
+	cin>>a;
+	cout<<"Enter a 2nd no. : ";
+	cin>>b;
+	cout<<"Enter character which operation have to perform ( + , - , * , / ) : ";
+	cin>>c;
+	
+	switch(c){
+		case'+':{
+			cout<<"Addition of "<<a<<" & "<<b<<" is : "<<a+b<<endl;
+			break;} 				// Here break statement is very important if we not give it compiler will refer further case also 
+		case'-':{
+			cout<<"subtraction of "<<a<<" & "<<b<<" is : "<<a-b<<endl;
+			break;}
+		case'*':{
+			cout<<"Multiplication of "<<a<<" & "<<b<<" is : "<<a*b<<endl;
+			break;}
+		case'/':{
+			cout<<"Division of "<<a<<" & "<<b<<" is : "<<a/b<<endl;
+			break;}
+		default:{
+			cout<<"Invalid operation."<<endl<<endl;
+			break;}
+	}
+	return 0;
+}
+
+
+
+Output :
+
+(1)
+Enter a 1st no. : 4
+Enter a 2nd no. : 5
+Enter character which operation have to perform ( + , - , * , / ) : +
+Addition of 4 & 5 is : 9
+
+(2)
+Enter a 1st no. : 5
+Enter a 2nd no. : 2
+Enter character which operation have to perform ( + , - , * , / ) : -
+subtraction of 5 & 2 is : 3
+
+(3)
+Enter a 1st no. : 7
+Enter a 2nd no. : 3
+Enter character which operation have to perform ( + , - , * , / ) : *
+Multiplication of 7 & 3 is : 21
+
+(4)
+Enter a 1st no. : 8
+Enter a 2nd no. : 3
+Enter character which operation have to perform ( + , - , * , / ) : /
+Division of 8 & 3 is : 2.66667
