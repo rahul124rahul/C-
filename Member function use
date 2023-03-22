@@ -1,0 +1,168 @@
+/*      Develop an object oriented program in C++ to create a database of student information system containing the following information: Name, Roll number, Class
+, division, Date of Birth, Blood group, Contact address, telephone number, driving license no. etc Construct the database with suitable member functions for 
+initializing and destroying the data viz constructor, default constructor, Copy constructor, destructor, static member functions, friend class, this pointer, 
+inline code and dynamic memory allocation operators-new and delete      */
+
+#include <iostream>
+#include <string.h>
+using namespace std;
+class db{
+    char roll[10] , name[20] , Class[10] , Div[10] , dob[21] , bg[11], contact[23] , phone[21], license[23];
+
+    public:
+        static int stdno;
+        static void count()    {
+            cout << "\nNo. of objects created: " << stdno;
+        }
+        void fin() { cout << "\nInline Function!"; }
+
+        db(){
+            strcpy(roll , "21");
+            strcpy(name, "RAHUL");
+            strcpy(Class, "II");
+            strcpy(Div, "C ");
+            strcpy(dob, "01/01/2003 ");
+            strcpy(bg, "AB+ ");
+            strcpy(contact, "LATUR ");
+            strcpy(phone, "97xxxxxx57 ");
+            strcpy(license, "ABCD1234PQRS");
+            ++stdno;
+        }
+        db(db *ob){
+            strcpy(roll,ob->roll);
+            strcpy(name, ob->name);
+            strcpy(Class, ob->Class);
+            strcpy(Div, ob->Div);
+            strcpy(dob, ob->dob);
+            strcpy(bg, ob->bg);
+            strcpy(contact, ob->contact);
+            strcpy(phone, ob->phone);
+            strcpy(license, ob->license);
+            ++stdno;
+        }
+        void getdata(){
+            cout << "\n\nEnter : Name , roll no. , Class , Div , Dob , bg , contact , phone , license : \n\n";
+            cin >> name >> roll >> Class >> Div >> dob >> bg >> contact >> phone >> license;
+        }
+        friend void display(db d);
+
+        ~db(){
+            cout << "\n\n"<< this->name << "(Object) is destroyed!";
+        }
+};
+
+void display(db d){
+    cout <<"\nName : "<< d.name;
+    cout <<"\nRoll no. : " << d.roll;
+    cout <<"\nClass : "<< d.Class;
+    cout <<"\nDiv : "<< d.Div;
+    cout <<"\nDOB : "<< d.dob;
+    cout <<"\nBlood Group : "<< d.bg;
+    cout <<"\nContact : "<< d.contact ;
+    cout <<"\nPhone : "<< d.phone;
+    cout <<"\nLicense : " <<d.license;
+}
+
+int db::stdno;
+
+int main(){
+    int n, i;
+    db d1, *ptr[5];
+    cout << "\nDefault values : \n";
+    display(d1);
+
+    d1.getdata();
+    display(d1);
+
+    db d2(&d1);
+    cout << "\n\nUse of copy constructor :\n";
+    display(d2);
+
+    cout << "\nHow many objects u want to create : ";
+    cin >> n;
+    for (i = 0; i < n; i++){
+        ptr[i] = new db();
+        ptr[i]->getdata();
+    }
+
+    for (i = 0; i < n; i++)
+        display(*ptr[i]);
+
+    db::count();
+
+    for (i = 0; i < n; i++){
+        delete (ptr[i]);
+    }
+    cout << "\nObjects deleted!";
+    return 0;
+}
+
+
+
+
+
+
+Output :
+
+
+
+Default values : 
+
+Name : RAHUL
+Roll no. : 21
+Class : II
+Div : C 
+DOB : 01/01/2003 
+Blood Group : AB+
+Contact : LATUR
+Phone : 97xxxxxx57
+License : ABCD1234PQRS
+
+RAHUL(Object) is destroyed!
+
+Enter : Name , roll no. , Class , Div , Dob , bg , contact , phone , license :
+
+Poonam
+1
+XII
+A
+24/06/2003
+O+
+937099999
+999999999
+
+fsufb8473652
+
+Name : Poonam
+Roll no. : 1
+Class : XII
+Div : A
+DOB : 24/06/2003
+Blood Group : O+
+Contact : 937099999
+Phone : 999999999
+License : fsufb8473652
+
+Poonam(Object) is destroyed!
+
+Use of copy constructor :
+
+Name : Poonam
+Roll no. : 1
+Class : XII
+Div : A
+DOB : 24/06/2003
+Blood Group : O+
+Contact : 937099999
+Phone : 999999999
+License : fsufb8473652
+
+Poonam(Object) is destroyed!
+How many objects u want to create : 0
+
+No. of objects created: 2
+Objects deleted!
+
+Poonam(Object) is destroyed!
+
+Poonam(Object) is destroyed!
