@@ -1,0 +1,61 @@
+/*       ****** Write a C++ program that creates an output file, writes information to it, closes the file and open it again as an input file and read the 
+information from the file       */
+
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main(){
+    fstream file; 
+
+    // Opening the file for the  first time 
+    file.open("sample.txt", ios::out);
+
+    if (!file){
+        cout << "Error in creating file!!!" << endl;
+        return 0;
+    }
+
+    cout << "File created successfully." << endl;
+    cout<<"Enter the data in the file : ";
+    string data;
+    cin>>data;
+    file << data;
+    // closing the file
+    file.close();
+
+    // again open file in read mode
+    file.open("sample.txt", ios::in);
+
+    if (!file){
+        cout << "Error in opening file!!!\nfile not found !!" << endl;
+        return 0;
+    }
+
+    char ch;
+    cout << "Reading the File content: ";
+    while (!file.eof()){    // !end of the file 
+        file >> ch; 
+        cout << ch;
+    }
+
+    // Reclosed the file
+    file.close(); 
+
+    return 0;
+}
+
+
+
+Output :
+
+(1)
+File created successfully.
+Enter the data in the file : poonam
+Reading the File content: poonamm
+
+
+(2)
+File created successfully.
+Enter the data in the file : Rahul is Bad boy.
+Reading the File content: Rahull
