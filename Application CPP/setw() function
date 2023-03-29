@@ -1,0 +1,31 @@
+
+// Use of setw() function which is under the <iomanip> header file
+
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+int main(){
+	int a=3,b=46,c=4567;
+
+	cout<<"Value without setw() : "<<a<<endl;
+	cout<<"Value without setw() : "<<b<<endl;
+	cout<<"Value without setw() : "<<c<<endl;
+
+	cout<<"Value with using setw() : "<<setw(7)<<a<<endl;
+	cout<<"Value with using setw() : "<<setw(7)<<b<<endl;
+	cout<<"Value with using setw() : "<<setw(7)<<c<<endl;
+	return 0;
+}
+
+
+
+
+Output :
+
+Value without setw() : 3
+Value without setw() : 46
+Value without setw() : 4567
+Value with using setw() :       3
+Value with using setw() :      46
+Value with using setw() :    4567
