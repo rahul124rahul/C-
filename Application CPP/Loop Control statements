@@ -1,0 +1,206 @@
+// IN THIS FILE RUN EACH PROGRAM BY SELECTION SEPATATELY
+
+//SAMPLE EXAMPLES OF DIFFERENT LOOPS
+
+//(1) for loop()
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	cout<<"\nEnter a no upto which we have to print : ";
+	int a,b;
+	cin>>a;
+	for(b=1;b<=a;b++){
+		cout<<b<<" ";
+	}
+	return 0;
+}
+
+Output :
+Enter a no upto which we have to print : 21
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 
+
+
+
+
+
+// (2) while loop()
+
+#include<iostream>
+using namespace std;
+int main(){
+	cout<<"\nEnter which number's table we have to print : ";
+	int x,z;
+	cin>>x;
+	z=1;
+	while(z<11){
+		cout<<x*z<<endl;
+        z++;
+	}
+    cout<<endl;
+	return 0;
+}
+
+Ouyput :
+Enter which number's table we have to print : 19
+19
+38
+57
+76
+95
+114
+133
+152
+171
+190
+
+
+
+
+
+// (3) do while loop()
+
+#include<iostream>
+using namespace std;
+int main(){
+	int a=2;
+	do{
+		cout<<"\nHello everyone!!!!!!!!!!"<<endl<<endl;
+
+	a--;		//This will decrement the value od 'a'
+
+	}while(a>3);		//Here condition is false till the once ststement is executed 		this easy problem to understand
+
+	return 0;
+}
+
+Output :
+
+Hello everyone!!!!!!!!!!
+
+
+
+
+
+
+// // SELECTION STATEMENTS
+
+// (1) if statemment
+
+// // PROGRAM TO KNOW ENTERED NO. IS POSITIVE ?
+
+#include<iostream>
+using namespace std;
+int main(){
+	cout<<"Enter a no.: ";
+	int a;
+	cin>>a;
+	if(a>0){
+		cout<<endl<<a<<" is positive no."<<endl<<endl;
+	}
+	return 0;
+}
+
+Output :
+Enter a no.: 23
+
+23 is positive no.
+
+
+
+
+
+// (2) if-else statement
+
+// // PROGRAM TO KNOW ENTERED NO. IS EVEN OR ODD
+
+#include<iostream>
+using namespace std;
+int main(){
+	int no;
+	cout<<"\nEnter a no. to know it is odd or even : ";
+	cin>>no;
+	
+	if(no%2==0){
+		cout<<no<<" is even number."<<endl<<endl;}
+	else{
+		cout<<no<<" is odd number."<<endl<<endl;}
+	return 0;
+}
+
+Output :
+Enter a no. to know it is odd or even : 45
+45 is odd number.
+
+
+
+
+
+// (3) if-else if-else statement
+
+// // PROGRAM TO KNOW ENTERED NO. IS POSITIVE , NEGATIVE OR ZERO
+
+#include<iostream>
+using namespace std;
+int main(){
+	int no;
+	cout<<"\nEnter a no. which we have to check : ";
+	cin>>no;
+	if(no<0){
+		cout<<no<<" is negative no."<<endl<<endl;}
+	else if(no>0){
+		cout<<no<<" is positive no."<<endl<<endl;}
+	else{
+		cout<<no<<" = 0"<<endl<<endl;}
+	return 0;
+}
+
+Output :
+Enter a no. which we have to check : -847
+-847 is negative no.
+
+
+
+// (4) switchcase statement
+
+// // SIMPLE CALCULATER USING SWITCHCASE SELECTION STATEMENT
+
+#include<iostream>
+using namespace std;
+int main(){
+	float a,b;
+	char c;
+	cout<<"Enter a 1st no. : ";
+	cin>>a;
+	cout<<"Enter a 2nd no. : ";
+	cin>>b;
+	cout<<"Enter character which operation have to perform ( + , - , * , / ) : ";
+	cin>>c;
+	
+	switch(c){
+		case'+':{
+			cout<<"Addition of "<<a<<" & "<<b<<" is : "<<a+b<<endl;
+			break;} 				// Here break statement is very important if we not give it compiler will refer further case also 
+		case'-':{
+			cout<<"subtraction of "<<a<<" & "<<b<<" is : "<<a-b<<endl;
+			break;}
+		case'*':{
+			cout<<"Multiplication of "<<a<<" & "<<b<<" is : "<<a*b<<endl;
+			break;}
+		case'/':{
+			cout<<"Division of "<<a<<" & "<<b<<" is : "<<a/b<<endl;
+			break;}
+		default:{
+			cout<<"Invalid operation."<<endl<<endl;
+			break;}
+	}
+	return 0;
+}
+
+Output :
+
+Enter a 1st no. : 7
+Enter a 2nd no. : 6
+Enter character which operation have to perform ( + , - , * , / ) : *
+Multiplication of 7 & 6 is : 42
