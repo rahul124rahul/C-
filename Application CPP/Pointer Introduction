@@ -1,0 +1,92 @@
+
+/* 	We can use break and continue statement with loops and switch only.(I think)		*/
+
+
+
+// // POINTERS IN C++
+// 	- Data type which holds the address of other data type
+// 	- & it is (address of) operator
+// 	- * is deferance operator(value at)	
+
+#include<iostream>
+using namespace std;
+int main(){
+	int a=4;
+	int*b=&a;	//Pointer defined and assigned the address of a
+	cout<<b<<endl;	//Gives the address of a
+	cout<<*b<<endl;	//Gives value stored at above address ie. 4
+
+	// poiter to pointer concept
+	
+	int**c=&b;
+    cout<<endl;
+	cout<<c<<endl;	//Gives address of pointer b
+	cout<<**c<<endl;		//Gives value stored at a ie. 4 only  --> It twice dereferances the pointer(i think)
+	
+	return 0;
+} 
+
+Output  :
+0x61ff08
+4
+
+0x61ff04
+4
+
+
+
+
+
+
+// // ARRAY-POINTER ARITHMETIC
+
+// 	- An array is collection of items of similar data types stored in continuous memory location.
+// 	- In array the name of array is itself address of first block.
+// 	- there is no required of putting & initially in front of array to address the array
+// 	- In case of array {	int d[];	int *a;	a=&d; => is wrong method	}
+// 	- New address = Current address + ( i * size of data typein an array)
+
+//  		(p+i)	  =	    p		  + 		i*size
+
+	
+#include<iostream>
+using namespace std;
+int main(){
+	int arr[4]={45,56,67,78};	// we can do like this also
+    //int arr[5]={45,56,67,78};	// we can do like this also
+    //int arr[6]={45,56,67,78};	// we can do like this also
+	//int arr[]={45,56.67,78};
+	cout<<arr[0]<<endl;
+	cout<<arr[1]<<endl;	
+	cout<<arr[2]<<endl;
+	cout<<arr[3]<<endl;
+	return 0;
+}
+
+Output :
+45
+56
+67
+78
+
+
+
+	
+#include<iostream>
+using namespace std;
+int main(){
+	int score[3];
+	score[0]=87;
+	score[1]=93;
+	score[2]=97;
+
+	for(int a=0;a<3;a++){
+		cout<<score[a]<<endl;}
+
+	return 0;
+}
+
+Output :
+87
+93
+97
