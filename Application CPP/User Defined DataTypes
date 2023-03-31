@@ -1,0 +1,128 @@
+/* USER DEFINED DATATYPES       -->structure -->union -->enumeration -->class */
+
+// structures : Used to store different data types
+
+//M1
+
+#include<iostream>
+
+using namespace std;
+
+typedef struct mobile{
+    char logo_letter;
+    int price;
+    float screen_size;
+}mo;        // Here we can use short name in the structure by using kayword typedef
+
+int main(){
+    mo MI;      //it's use is to avoid writing structure mobile
+
+    MI.logo_letter = 'M';
+    MI.price = 18000;
+    MI.screen_size = 5.5;
+
+    cout<<MI.logo_letter<<endl;
+    cout<<MI.price<<endl;
+    cout<<MI.screen_size<<endl;
+    return 0;
+}
+
+Output :
+M
+18000
+5.5
+
+
+
+
+
+
+//M2
+
+#include<iostream>
+
+using namespace std;
+
+struct mobile{
+    char logo_letter;
+    int price;
+    float screen_size;
+};   //semicolon(;) is required after the structure defination
+
+int main(){
+    struct mobile MI;    
+
+    MI.logo_letter = 'M';
+    MI.price = 18000;
+    MI.screen_size = 5.5;
+
+    cout<<MI.logo_letter<<endl;
+    cout<<MI.price<<endl;
+    cout<<MI.screen_size<<endl;
+    return 0;
+}
+
+Output :
+M
+18000
+5.5
+
+
+
+
+
+/* union : - Here we can use only one data type defined in union at a time not like struct
+           - union uses same block of memory to store different data type variable (i think)    
+            --> I think something went wrong on following program check once        
+            ------>> Now it is correct I checked.        */
+
+#include<iostream>
+using namespace std;
+
+union shop{
+    char section;
+    int no;
+    float size; //in square feet 
+};      // semicolon is very much required(;)
+
+int main(){
+    union shop s;
+    s.no = 6;
+    s.section = 'g';
+    s.size = 1304.50;
+
+    cout<<s.no<<endl;
+    // cout<<s.section<<endl;
+    cout<<s.size<<endl;
+
+    cout<<sizeof(s.no)<<endl;       // I think this should give garbage value but not giving check once
+    // cout<<sizeof(s.section)<<endl;  //      -//-
+    cout<<sizeof(s.size)<<endl;
+    return 0;
+}
+
+Output :
+1151537152
+1304.5
+4
+4
+
+
+
+
+/* enumeration : it will allocate index value to it's elements */
+
+#include<iostream>
+using namespace std;
+int main(){
+    enum rahul{son,bro,yar,dost};
+    rahul r = dost;
+    cout<<(r==2)<<endl;     // it will return 0 because index value of dost is 3 ie. r=3 //since this is false statement so returns 0
+    cout<<yar<<endl;        // It will return index vakue of yar ie. 2
+
+    return 0;
+}
+
+Output :
+0
+2
