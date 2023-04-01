@@ -1,0 +1,116 @@
+/*  function and function prototypes 
+
+    In this we define a function or give information to compiler inadvence & the actual function is defined delow main function 
+    
+    syntax:
+    data_type function_name(arguments);     */
+    // EX.
+
+
+    
+    // function prototype
+
+    #include<iostream>
+    using namespace std;
+
+    int multiplication(int a , int b);      //thhis is vslid
+   // int multiplication(int , int);      //this is also valid
+
+  //int multiplication(int a,b);    // is invalid
+
+  //  void get(void);     // This is valid
+    void get();     // This is also valid
+
+
+    int main(){
+        int no1,no2;
+        cout<<"Enter first no : ";
+        cin>>no1;
+        cout<<"Enter second no : ";
+        cin>>no2;
+        // Here no1 & no2 are actual parameters
+
+        multiplication(no1,no2);
+        get();
+
+        return 0;
+    }
+
+    int multiplication(int a , int b){
+        // Here a & b are formal parameters taking values from actual parameters no1 & no2
+        cout<<"\nThe multiplication of "<<a<<" & "<<b<<" is : "<<a*b<<endl;  }
+
+    void get(){
+        cout<<"Here the practical of function prototpe is going on.\n"<<endl;
+    }
+
+Output :
+
+Enter first no : 12
+Enter second no : 23
+
+The multiplication of 12 & 23 is : 276
+Here the practical of function prototpe is going on.
+
+
+
+
+
+
+
+// call by value , call by referance in cpp
+
+void swap(int,int);  // function prototype is used here
+void swap_pointer(int*,int*);   //This is pointer case it will return the swapped values    -//-
+void swap_ref_var(int&,int&);   //This is call by referance case to swap the value      -//-
+
+#include<iostream> 
+using namespace std;
+int main(){
+    //sample program to swap two numbers
+    int p,q;
+    cout<<"Enter ist no. : ";
+    cin>>p;
+    cout<<"Enter 2nd no. : ";
+    cin>>q;
+
+    // swap(p,q);  
+    // cout<<"\nFollowing is simple swap case."<<endl;
+
+    // swap_pointer(&p,&q);
+    // cout<<"\nFollowing is pointer value case."<<endl;
+
+    swap_ref_var(p,q);
+    // cout<<"\nFollowing is pointer value case."<<endl;
+
+    cout<<"\nNow 1st no is : "<<p<<endl;
+    cout<<"& 2nd no is : "<<q<<endl;
+
+    return 0;
+}
+
+void swap(int a,int b){
+    int temp = a;   //thid will not swap the two numbers
+    a = b;
+    b = temp;
+}
+
+void swap_pointer(int*a,int*b){     // Here a & b are pointer variables
+    int temp=*a;        // call by pointer value method
+    *a=*b;          // This is working
+    *b=temp;
+}
+
+void swap_ref_var(int&a,int&b){     // 
+    int temp=a;     // call by referance variable method
+    a=b;            // This ia also working -->means swapping the two numbers
+    b=temp;
+}
+
+
+Output :
+Enter first no : 12
+Enter second no : 23
+
+The multiplication of 12 & 23 is : 276
+Here the practical of function prototpe is going on.
