@@ -1,0 +1,85 @@
+/*
+OOPs => classes and objects
+C++ => initially called --> c with classes by_____________(filll in the blanks)
+class => extension of structures (in c)
+structures had limitations -->members are public
+                            -->no methods
+classes = structures + more
+classes can have methods and properties
+classes can make few mambers as private some as protected & some as public
+
+structures in c++ are typedefed----???
+
+harray.salary=8;    --> makes no sence if salary is private or protected variable
+*/
+
+
+
+// //we can declare objects along with the class declaration like following:
+// // This following will work definitely
+
+// #include<iostream>
+// using namespace std;
+
+// class student {
+//     //class defination 
+// }rahul,adarsh,shivam;
+
+// int main(){
+//     //code something
+//     return 0;
+// }
+
+
+
+//  Nesting of member function (i think i have not completed it please check once)
+
+#include<iostream>
+using namespace std;
+
+class binary{
+    string s;
+    public:
+        void read(void);
+        void chk_bin(void);
+};
+
+void binary :: read(){
+    cout<<"Enter a binary no. : ";
+    cin>>s;
+    }
+
+void binary :: chk_bin(){
+    for(int i=0 ; i<s.length() ; i++){
+
+        if(s.at(i)!='0' && s.at(i)!='1'){           //*** focus how it is used -->the ever bit is compared with '0' & '1' by separately 
+
+            cout<<"Invalid binary format."<<endl;
+            break;
+        }
+
+        else{
+            cout<<"It is valid binary format."<<endl;
+            break;
+        }
+    }
+}
+
+int main(){
+    binary r;
+    r.read();
+    r.chk_bin();
+    return 0;
+}
+
+
+
+Output :
+
+(1)
+Enter a binary no. : 101001010011001001
+It is valid binary format.
+
+(2)
+Enter a binary no. : 345733      
+Invalid binary format.
