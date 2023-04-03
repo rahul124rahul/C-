@@ -1,0 +1,127 @@
+// 23 Object memory allocation - using array in classes
+// In this problem i think i am only copid the program try to do another program of same type by own
+
+#include<iostream>
+using namespace std;
+
+class shop{
+    int itemId[10];
+    int itemPrice[10];
+    int counter;
+
+    public:
+        void init_counter(void){counter=0;} // Function defined in class only
+        void setInfo(void);
+        void getInfo(void);
+
+}grocery;           // Object created directly
+
+void shop :: setInfo(){
+    cout<<"\nEnter Id of the product no. " << counter + 1 <<" is : ";
+    cin>>itemId[counter];
+
+    cout<<"Enter price of product no. "<<counter + 1<<" is : ";
+    cin>>itemPrice[counter];
+
+    counter++;
+}
+
+void shop :: getInfo(){
+    for(int i=0 ; i<counter ; i++){
+    cout<<"Price of product of Id no "<<itemId[i]<<" is Rs."<<itemPrice[i]<<endl;
+}
+}
+
+int main(){
+    grocery.init_counter();
+    grocery.setInfo();
+    grocery.setInfo();
+    cout<<endl;
+    grocery.getInfo();
+    cout<<endl;
+    return 0;
+}
+
+
+output :
+
+Enter Id of the product no. 1 is : 345
+Enter price of product no. 1 is : 45
+
+Enter Id of the product no. 2 is : 123
+Enter price of product no. 2 is : 34
+
+Price of product of Id no 345 is Rs.45
+Price of product of Id no 123 is Rs.34
+
+
+
+
+
+
+// 24 // Static data members - methods in cpp 
+
+// In this I not got the use of static properly (Try to understand it ones neatly)
+
+#include<iostream>
+using namespace std;
+
+class  employee{
+    int id;
+    static int count;
+
+    public:
+        void setdata(void){
+            cout<<"\nEnter the id : ";
+            cin>>id;
+        }
+
+        void getdata(void){
+            cout<<"The id of the employee is "<<id<<" and this is employee number "<< count + 1 <<endl;
+        }
+
+        static void getcount(void){
+            cout<<"The value of count is "<<count<<endl;
+            count++;
+        }
+};
+
+int employee :: count;          // Default value is 0
+
+int main(){
+    employee rahul,rohan,radha;
+    //rahul.id = 1;
+    //rahul.count = 1;      // cannot do this as id and count are private
+
+    rahul.setdata();
+    rahul.getdata();
+    employee::getcount();
+
+    rohan.setdata();
+    rohan.getdata();
+    employee::getcount();
+
+    radha.setdata();
+    radha.getdata();
+    employee::getcount();
+    
+    cout<<endl;
+    return 0;
+}
+
+
+
+
+Output :
+
+Enter the id : 2345
+The id of the employee is 2345 and this is employee number 1
+The value of count is 0
+
+Enter the id : 123
+The id of the employee is 123 and this is employee number 2
+The value of count is 1
+
+Enter the id : 897
+The id of the employee is 897 and this is employee number 3
+The value of count is 2
