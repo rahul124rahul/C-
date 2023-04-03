@@ -1,0 +1,112 @@
+//*********************** OPJECT ORIENTERD PROGRAMMING ***********************//
+
+/*
+
+-C++ language was desingned with main intension of adding opject oriented features to C language.
+-As the size of the program increases , readiability and bugfree nature of program dcreases.
+-This was the major problem with language like C , which relied upon functions or procedure.
+        (Hence C language have name as procedural programming language)
+-As a result , the possibility of not addressing the problem is an effective manner was high.
+-Also as data is almost neglected , data securicity was easily compromised.
+-Using classes this problem by modeling problem as a real world senario.
+
+
+PROCEDURE ORIENTED PROGRAMMING
+        -Consist of writing a set of instructions for the computer to follow.
+        -Main focus is on funnctions not on flow of data.(not got the point)
+        -Function can use local or global data.
+        -Data moves from function to function.
+        
+
+OBJECT ORIENTED PROGRAMMING
+        -Works on concept of classes and objects.
+        -A class is template to create objecct.
+        -Treats data as critical element.
+        -Decomposes the problem in objects and builds data and functiond around the object.
+
+BASIC CONCEPTS IN OBJECT ORIENTED PROGRAMMING
+        -Classes => Basic template for creating objects
+        -Objects => Basic runtime entity
+        -Data abstraction & Encapsulation => Wrapping data & functions into single unit.
+        -Inheritance => Properties of one class can be inherited in to objects or other class.
+        -Polymorphism => Ability to take more than one forms.
+        -Dynamic binding => Code while will execute is not known until the program runs.
+        -Message passing => object.message(information) call format.
+
+
+BENEFITS OF OOPs
+        -Better code reusability using objects and inheritance
+        -Principal of data hiding helps in building secure systems.
+        -Mutiple objects can co-exist without any interferance.
+        -Softwaere complixicity can be easily managed.
+
+*/
+
+
+
+//classes public , protected and private access modifiers in cpp
+
+#include<iostream>
+using namespace std;
+
+class student{
+        // private:        //we can write like this also
+                int a,b;        //By default this is private
+
+        protected:
+                int c,d;
+        public:
+                int e,f;
+                void setprivate(int a1,int a2);
+                void getprivate();
+                void setprotected(int, int);
+                void getprotected();
+};      // here semicolon must be given after class declaration
+
+void student::setprivate(int a1,int a2){
+        a=a1;
+        b=a2;
+}
+
+void student::getprivate(){
+        cout<<"The private data stored is :"<<a<<" & "<<b<<endl;
+        cout<<"First public variable is : "<<e<<endl;
+        }
+
+void student::setprotected(int x, int y){
+        c=x;
+        d=y;
+}
+
+void student::getprotected(){
+        cout<<"The protected data here is : "<<c<<" & "<<d<<endl;
+        cout<<"the second public variable is : "<<f<<endl;
+}
+
+int main(){
+        student rahul;
+        rahul.e=25;     //We can assign direct value to public variables by dot(.) with the object crreated of the particular class
+        rahul.f=28;         //          -//-
+        // rahul.c=54;  // This will not work because c is protected
+
+        // rahul.a=67;          // This will throw an error because this is declared as protected
+        rahul.setprivate(23,24);
+        rahul.getprivate();
+
+        // rahul.c=45;          // This will throw an error because the c is declared as protected
+        rahul.setprotected(26,27);
+        rahul.getprotected();
+
+        return 0;
+
+}
+
+
+
+
+Output :
+
+The private data stored is :23 & 24
+First public variable is : 25
+The protected data here is : 26 & 27
+the second public variable is : 28
