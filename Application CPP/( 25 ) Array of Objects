@@ -1,0 +1,68 @@
+// // 25 // Array of objects
+
+#include<iostream>
+using namespace std;
+
+class employee{
+    int id ,salary;
+    public:
+        void setdata(void);     // function is declared here 
+        void getdata(void);
+};
+
+void employee :: setdata(void){                 // function is defined here
+    cout<<"\nEnter Id no of emplayee : ";
+    cin>>id;
+    cout<<"Enter salary : ";
+    cin>>salary;
+    cout<<endl;
+}
+
+void employee :: getdata(){
+    cout<<"The employee id is : "<<id<<" and salary is : "<<salary<<endl;
+}
+
+int main(){
+    //employee rahul,rohan,shivam,vishnu;
+    //rahul.setdata()
+    //rahul.getdata()
+
+    employee fb[4];         // IN this step array of object is created
+    for(int i=0 ; i<4 ; i++){
+        fb[i].setdata();        //functions are called here by using objects
+        fb[i].getdata();
+    }
+    return 0;
+}
+
+
+Output :
+
+Enter Id no of emplayee : 123
+Enter salary : 15000
+
+The employee id is : 123 and salary is : 15000
+
+Enter Id no of emplayee : 234
+Enter salary : 14000
+
+The employee id is : 234 and salary is : 14000
+
+Enter Id no of emplayee : 2345
+Enter salary : 100000
+
+The employee id is : 2345 and salary is : 100000
+
+Enter Id no of emplayee : 23
+Enter salary : 56000
+
+The employee id is : 23 and salary is : 56000
+
+
+
+
+
+
+
+
+
