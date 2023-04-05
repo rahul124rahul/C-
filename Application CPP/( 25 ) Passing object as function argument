@@ -1,0 +1,43 @@
+
+// 25  // Passing object as function argument 
+
+#include<iostream>
+using namespace std;
+
+class complex{
+    int a , b ;
+    public:
+        void setdata(int a1 , int a2){
+            a=a1;
+            b=a2;
+        }
+        void getdata_by_sum(complex o1 , complex o2){       // Here object is passed as function argument 
+            a = o1.a + o2.a;
+            b = o1.b + o2.b;        // Here the accessing method is little diffrent (try to get it and implement)
+        }
+        void print_no(void){
+            cout<<"Our complex no ia "<<a<<" + "<<b<<"i"<<endl;
+        }
+};
+
+int main(){
+    complex c1,c2,c3;
+    c1.setdata(3,4);
+    c1.print_no();
+
+    c2.setdata(4,5);
+    c2.print_no();
+
+     // The method of passing object to function is same as the value(Here object is passed) passing to any defined function in the simple class
+    c3.getdata_by_sum(c1,c2);
+    c3.print_no();
+
+    return 0;
+}
+
+
+Output :
+
+Our complex no ia 3 + 4i
+Our complex no ia 4 + 5i
+Our complex no ia 7 + 9i
