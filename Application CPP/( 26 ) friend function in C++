@@ -1,0 +1,46 @@
+
+// 26 // friend function in C++
+
+#include<iostream>
+using namespace std;
+
+class complex{
+    int a, b;
+    public:
+        void setval(int x , int y){
+            a = x;
+            b = y;
+        }
+        void getno(void){
+            cout<<"The complex no is "<<a<<" + "<<b<<" i"<<endl;
+        }
+        friend complex sumcomplex(complex o1 , complex o2);
+};
+
+complex sumcomplex(complex o1 , complex o2){
+    complex o3;
+    o3.setval((o1.a + o2.a),(o1.b + o2.b));
+    return o3;
+}
+
+int main(){
+    complex c1,c2,sum;
+    c1.setval(1,4);
+    c1.getno();
+
+    c2.setval(5,8);
+    c2.getno();
+
+    sum=sumcomplex(c1,c2);
+    sum.getno();
+
+    return 0;
+}
+
+
+
+Output :
+
+The complex no is 1 + 4 i
+The complex no is 5 + 8 i
+The complex no is 6 + 12 i
