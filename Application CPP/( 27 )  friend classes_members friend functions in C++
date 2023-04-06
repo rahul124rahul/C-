@@ -1,0 +1,85 @@
+/*
+PROPERTIES OF FRIEND FUNCTION
+    -Not ina scope of class {not a part of class}
+    -Since it is not in scope of the class , it can not be called from object of the class  ( c1.sumcomplex()  --> it is invalid )
+    -can be invoked without the help of any object of the class.
+    -Usually contains the object as arguments.
+    -Can be declared inside public or private section of the class.
+    -It can not access the members directly by their name and need object_name.member_name to access any member.
+
+*/
+
+27  // friend classes_members friend functions in C++
+
+#include<iostream>
+using namespace std;
+
+class complex;          // forward declaration
+
+class calc{
+    public:
+    int add(int a , int b){
+        return a+b ;
+    }
+    int sumreal(complex,complex);
+    int sumimaginary(complex,complex);
+};
+
+class complex{
+    int a , b ;
+
+    // individually declaring function as friend
+    friend int calc :: sumreal(complex,complex);
+    friend int calc :: sumimaginary(complex,complex);
+
+    // Alternate method : Declaring the entire class as friend
+    friend class calc;
+
+    public:
+        void setno(int x ,int y){
+            a = x;
+            b = y;
+        }
+
+        void printno(void){
+            cout<<"Our complex no is "<<a<<" + "<<b<<" i"<<endl;
+        }
+};
+
+int calc :: sumreal(complex o1 , complex o2){
+    return(o1.a+o2.a);
+}
+
+int calc :: sumimaginary(complex o1, complex o2){
+    return(o1.b+o2.b);
+}
+
+int main(){
+    complex o1, o2 ;
+    o1.setno(2,6);
+    o1.printno();
+
+    o2.setno(5,3);
+    o2.printno();
+
+    calc cal;
+
+    int sr;
+    sr = cal.sumreal(o1,o2);
+    cout<<"The sum of real part of complex no is : "<<sr<<endl;
+
+    int si;
+    si = cal.sumimaginary(o1,o2);
+    cout<<"The sum of imaginary part of complex no is : "<<si<<endl;
+
+    return 0;
+}
+
+
+
+Output :
+
+Our complex no is 2 + 6 i
+Our complex no is 5 + 3 i
+The sum of real part of complex no is : 7
+The sum of imaginary part of complex no is : =9
