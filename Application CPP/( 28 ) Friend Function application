@@ -1,0 +1,47 @@
+
+
+// 28 // More about friend function 
+
+#include<iostream>
+using namespace std;
+
+class x;        // Pre declaration of the class
+
+class y{
+    int a ;
+    public:
+        void setno(int p){
+            a = p;
+        }
+        friend void sum(x,y);
+};
+
+class x{
+    int b ;
+    public:
+        void setno(int q){
+            b = q;
+        }
+        friend void sum(x,y);
+};
+
+void sum(x o1 , y o2){
+    cout<<"\nSumming data of class x & class y is : "<<o1.b+ o2.a<<endl;
+}
+
+int main(){
+    x d;
+    d.setno(5);
+
+    y f;
+    f.setno(7);
+
+    sum(d,f);
+    cout<<"\n";     // \n is used for new line
+    return 0;;
+
+}
+
+
+Output :
+Summing data of class x & class y is : 12
