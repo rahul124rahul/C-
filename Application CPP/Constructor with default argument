@@ -1,0 +1,56 @@
+
+/*
+Function Overloading:
+    If one class has multiple functions with same names. But different different parameters then they are said 
+    to be overloaded.
+    - Function overloading allows you to use the same name for different functions , to perform , either same 
+    or different functions in the same class. 
+    - If you have to perform one single operation but with different number or types of arguments then you can
+    simply overload the function */
+
+
+
+
+
+/* 32 Constructor with default argument in C++
+        it's concept to set default value to the variables in class constructor in c++ */
+
+#include<iostream>
+using namespace std;
+
+class simple{
+    int d1,d2,d3;
+    public:
+        simple(int a,int b=9,int c=8){
+            d1=a;
+            d2=b;
+            d3=c;
+        }
+
+        void print_data();
+};
+
+void simple::print_data(){
+    cout<<"The values of data are "<<d1<<" , "<<d2<<" , "<<d3<<endl;
+}
+
+int main(){
+    simple s1(2,3);
+    s1.print_data();
+
+    simple s2(5);
+    s2.print_data();
+
+    simple s3(9,8,7);
+    s3.print_data();
+
+    return 0;
+}
+
+
+
+Outpt :
+
+The values of data are 2 , 3 , 8
+The values of data are 5 , 9 , 8
+The values of data are 9 , 8 , 7
