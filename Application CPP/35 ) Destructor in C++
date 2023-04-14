@@ -1,0 +1,63 @@
+
+// 35  Destructor in C++
+//      Destructor never takes an argument nor does it return any value
+
+#include<iostream>
+using namespace std;
+
+int count=0;
+class num{
+    public:
+        num(){
+            count++;
+            cout<<"This is the time when constructor is called for the object number "<<count <<endl;
+        }
+
+        ~num(){
+            cout<<"This is the time when my destructor is called for object number "<<count<<endl<<endl;
+            count--;
+        }
+};
+
+
+int main(){
+
+    cout<<"We are inside our main function "<<endl;
+    cout<<"creating first object n1 "<<endl;
+
+    num n1;{
+        cout<<endl<<"Entering this block "<<endl;
+        cout<<"Creating two more objects\n "<<endl;
+
+        num n2,n3;
+            cout<<"Exiting this block "<<endl<<endl;
+    }
+
+    cout<<endl<<"Back to main"<<endl;
+    
+    return 0;
+}
+
+
+
+
+Output :
+
+We are inside our main function 
+creating first object n1 
+This is the time when constructor is called for the object number 1
+
+Entering this block 
+Creating two more objects
+ 
+This is the time when constructor is called for the object number 2
+This is the time when constructor is called for the object number 3
+Exiting this block
+
+This is the time when my destructor is called for object number 3
+
+This is the time when my destructor is called for object number 2
+
+
+Back to main
+This is the time when my destructor is called for object number 1
