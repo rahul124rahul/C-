@@ -1,0 +1,31 @@
+
+
+/*
+    39  Protected Access Modifiers in C++
+*/
+
+#include<iostream>
+using namespace std;
+
+class base{
+    protected:
+        int a=2;
+    private:
+        int b=4;
+};
+
+class derived:public base{
+
+};
+
+int main(){
+    base c;
+    derived d;
+        // Following all will show error because these all are declared as protected and as private
+    cout<<c.a;      
+    cout<<d.a;
+    cout<<c.b;
+    cout<<d.b;
+
+    return 0;
+}
