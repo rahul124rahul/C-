@@ -1,0 +1,80 @@
+
+
+/* 
+37   Inheritance syntax & Visibility mode in C++
+
+ */
+
+#include<iostream>
+using namespace std;
+
+class Employee{         //Base class
+    public:
+        int id;
+        float salary;
+        Employee(int a){
+            id=a;
+            salary=34.45;
+        }
+        Employee(){}
+};
+
+// Creating a programmer class derived from Employee Base class
+class programmer : public Employee{
+    public: 
+        int languagecode;
+        programmer(int a){
+            id=a;
+            languagecode=9;
+        }
+
+        void getdata(){
+            cout<<"The Id is : "<<id<<endl;
+        }
+};
+
+int main(){
+    Employee rahul(1),Harry(2);
+    cout<<rahul.salary<<endl;
+    cout<<Harry.salary<<endl;
+    
+    programmer skillf(20);
+    cout<<skillf.languagecode<<endl;
+    cout<<skillf.id<<endl;
+    skillf.getdata();
+    
+    return 0;
+}
+
+
+Output :
+
+34.45
+34.45
+9
+20
+The Id is : 20
+
+
+
+
+
+/*
+NOTES:-
+    - Default visibility mode is private
+    - Public visibility mode : Public members of the base class becomes public members of the derived class 
+    - Private visibility mode : Public members of the base class becomes private members of the derived class
+    - Private members never inherited in the Derived class
+    
+      IN FOLLOWING                         MEMBERS              
+        VISIBILITY MODE        public      protected       private
+
+    public                     public      protected       private
+
+    protected                  protected   protected       private
+
+    private                    private     private         private  
+                         not inherited   not inherited  not inherited
+    actually Private members never inherited in the Derived class
+                                
+    */
