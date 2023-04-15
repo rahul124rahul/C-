@@ -1,0 +1,27 @@
+/*
+36 INHERITANCE & it's different types with examples in C++
+
+
+Inheritance in C++
+
+- Reusibility is very important feature of OOPS
+- In C++ we can reuse a class and add additional features to it
+- Reusing classes saves time & money
+- Reusing already tested and debugged class will save a lot of effort of developing and
+     debugging the same things again
+
+
+WHAT IS INHERITANCE IN C++ ?
+
+- The concept of reusability in C++ is supported using inheritance
+- We can reuse the properties of an existing class by inheriting from it
+- The existing class is called as base class
+- The new class which is inherited is called as the derived class
+- Reusing classes saves time and money
+- There are different types of inheritance
+    1) Single Inheritance
+    2) Multiple Inheritance
+    3) Multilevel Inheritance
+    4) Hierarchical Inheritance
+    5) Hybrid Inheritance
+*/
