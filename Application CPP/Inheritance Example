@@ -1,0 +1,90 @@
+/* 
+Exercise on C++ Inheritance */
+
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+class simple_calc{
+    float a,b;
+    public:
+        void get_2_no();
+        void addition();
+        void subtraction();
+        void multiplication(){
+            cout<<"The multiplication of "<<a<<" & "<<b<<" = "<<a*b<<endl;
+        }
+        void division(){
+            cout<<"The division of "<<a<<" & "<<b<<" = "<<a/b<<endl;
+        }
+};
+
+void simple_calc :: get_2_no(){
+    cout<<"\nEnter 2 number inputs for simple calculation : ";
+    cin>>a>>b;
+}
+
+void simple_calc :: addition(){
+    cout<<"The addition of "<<a<<" & "<<b<<" = "<<a+b<<endl;
+}
+void simple_calc :: subtraction(){
+    cout<<"The subtraction of "<<a<<" & "<<b<<" = "<<a-b<<endl;
+}
+
+class scientific_calc {
+    float x,y;
+    public:
+        void getno(){
+            cout<<"\nEnter the numbers for Scientific Calculation : ";
+            cin>>x>>y;
+        }
+        void power(){
+            cout<<"The "<<x<<" to the power "<<y<<" = "<<pow(x,y)<<endl;
+        }
+
+        void sinefx(){
+            cout<<"The sin("<<x<<") = "<<sin(x)<<endl;      // Here input of the sine,cosine,tan is taken as radian
+        }
+
+        void cosinefx(){        // Here input of the inverse trigonometric function is degree
+            cout<<"The cos^-1 ("<<x<<") = "<<acos(x)<<endl;    
+        }
+
+        void square_root(){
+            cout<<"The square root of "<<x<<" is = "<<sqrt(x)<<endl;
+        }
+};
+
+class hybrid_calc : public simple_calc , public scientific_calc{
+    public:
+        void final(void){
+            get_2_no();
+            addition();
+            subtraction();
+            multiplication();
+            division();
+            getno();
+            power();
+            sinefx();
+            cosinefx();
+            square_root();
+
+        }
+};
+
+int main(){
+    hybrid_calc obj;
+    obj.final();
+
+    return 0;
+}
+
+
+Output :
+
+
+Enter 2 number inputs for simple calculation : 121 345 
+The addition of 121 & 345 = 466
+The subtraction of 121 & 345 = -224
+The multiplication of 121 & 345 = 41745
+The division of 121 & 345 = 0.350725
