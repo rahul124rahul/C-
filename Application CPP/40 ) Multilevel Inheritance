@@ -1,0 +1,70 @@
+/* 40  Multilevel Inheritance Deep Drive With Code Example in C++ */
+
+#include<iostream>
+using namespace std;
+
+class student{
+    int roll_no;
+    public:
+        void set_rollno(int no){
+            roll_no=no;
+        }
+
+        void get_rollno(void);
+};
+
+void student :: get_rollno(void){
+    cout<<"The Roll number of the student is : "<<roll_no<<endl;
+}
+
+class Exam : public student{
+    protected:
+        float physics_m,maths_m,chemistry_m;
+    public:
+        void setmarks(float,float,float);
+        void getmarks();
+};
+
+void Exam :: setmarks(float a ,float b ,float c){
+    physics_m=a;
+    maths_m=b;
+    chemistry_m=c;
+}
+
+void Exam :: getmarks(){
+    cout<<"\nThe marks of the Above student are :"<<endl<<"Physics : "<<physics_m<<endl<<"Maths : "<<maths_m<<endl<<"Chemistry : "<<chemistry_m<<endl;
+}
+
+
+class result : public Exam{
+    float percentage;
+    public:
+        void display(){
+            get_rollno();
+            getmarks();
+            percentage=(physics_m+maths_m+chemistry_m)/3;
+            cout<<"\nThe Percentage of the student is "<<percentage<<endl;
+        }
+};
+
+int main(){
+    result real;
+    real.set_rollno(21);
+    real.setmarks(79.5,86.5,76.9);
+    real.display();
+    
+    return 0;
+}
+
+
+
+Output :
+
+The Roll number of the student is : 21
+
+The marks of the Above student are :
+Physics : 79.5
+Maths : 86.5
+Chemistry : 76.9
+
+The Percentage of the student is 80.9667
