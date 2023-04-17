@@ -1,0 +1,64 @@
+
+/* 
+41   Multiple Inheritance Deep Drive With Code example in C++
+         */
+
+#include<iostream>
+using namespace std;
+
+class base1{
+    int b1int;
+    public:
+        void setno(int);
+        void getno(void);
+};
+
+void base1 :: setno(int a){
+    b1int=a;
+}
+
+void base1 :: getno(void){
+    cout<<"The integer value of base1 is : "<<b1int<<endl;
+}
+
+class base2{
+    int b2int;
+    public:
+        void set(int b){
+            b2int=b;
+        }
+        void get(void){
+            cout<<"The integer value of the base 2 is : "<<b2int<<endl;
+        }
+};
+
+class derived : public base1 , public base2{
+    int dint;
+    public:
+        void setd(int d){
+            dint=d;
+        }
+        void getall(void){
+            getno();
+            get();
+            cout<<"The integer value of the derived class is : "<<dint<<endl;
+        }
+};
+
+int main(){
+    derived obj;
+    obj.setno(2);
+    obj.set(4);
+    obj.setd(6);
+    obj.getall();
+    
+    return 0;
+}
+
+
+Output :
+
+
+The integer value of base1 is : 2
+The integer value of the base 2 is : 4
+The integer value of the derived class is : 6
