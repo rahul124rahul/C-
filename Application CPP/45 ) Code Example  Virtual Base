@@ -1,0 +1,78 @@
+/* 
+45  Code Example Demonstrating Virtual Base Class in C++    */
+
+#include<iostream>
+using namespace std;
+class student{
+    int roll_no;
+    public:
+        void set_roll_no(int a){
+            roll_no=a;
+        }
+        void get_roll_no(){
+            cout<<"\nThe student's roll number is : "<<roll_no<<endl;
+        }
+};
+
+class test : virtual public student{
+    protected:                  // Here we have to declare variables as protected or public because private members(elements) are not inheritable further in the classes
+        float m_math,m_history,m_english;
+    public:
+        void set_marks(float p , float q , float r){
+            m_math=p;
+            m_history=q;
+            m_english=r;    
+        }
+
+        void get_marks (){
+            cout<<"\nThe result of the student is as follows : \nMaths : "<<m_math<<"\nHistory : "<<m_history<<"\nEnglish : "<<m_english<<endl;
+        }
+};
+
+class sports : public virtual student {
+    protected:                  // Here we have to declare variables as protected or public because private members(elements) are not inheritable further in the classes
+        float score;
+    public:
+        void set_score(float x){
+            score=x;
+        }
+        void get_score(){
+            cout<<"\n The score of the sports of the student is : "<<score<<endl;
+        }
+};
+
+class result : public test , public sports{
+    float total;              //  Here we can declare total as private here because we don't inherit it further 
+    public:
+        void final_result(){
+            total=m_english+m_history+m_math+score;
+            get_roll_no();
+            get_marks();
+            get_score();
+            cout<<"\n The Total marks of the student is : "<<total<<endl<<endl;
+        }
+};
+
+int main(){
+    result obj;
+    obj.set_roll_no(21);
+    obj.set_marks(89.67,78.98,87);
+    obj.set_score(9.5);
+    obj.final_result();
+    
+    return 0;
+}
+
+Output :
+
+
+The student's roll number is : 21
+
+The result of the student is as follows :
+Maths : 89.67
+History : 78.98
+English : 87
+
+ The score of the sports of the student is : 9.5
+
+ The Total marks of the student is : 265.15
