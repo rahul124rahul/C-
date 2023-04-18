@@ -1,0 +1,21 @@
+
+/* 
+44    Virtual Base Class in C++          
+
+
+Following is the syntax of the virtual base class :
+
+        class A{}
+
+        class B : virtual public A{}        // Here interchanging of virtual and public is allowed like following
+
+        class C : public virtual A{}
+
+        class d : public B , public C{}
+
+In above one class A is the base class for both B & C class 
+    and  class D is derived class from class B and class C      ie., class B & C are base class for the class D
+
+
+ */
+
