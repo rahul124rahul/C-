@@ -1,0 +1,39 @@
+// Ambiguity resolution by overloading the function 
+
+#include <iostream>
+using namespace std;
+
+class one{
+    public:
+        void something(){
+            cout<<"This is the something of the one class\n";
+        }
+};
+
+class two{
+    public:
+        void something(){
+            cout<<"This is the something of the two class\n";
+        }
+};
+
+int main(){
+    one obj;
+    obj.something();
+    
+    // Class tow's something function will override when this class's object is created
+    two obje;
+    obje.something();
+
+    cout<<endl;
+    
+    return 0;
+}
+
+
+
+Output : 
+
+
+This is the something of the one class
+This is the something of the two class
