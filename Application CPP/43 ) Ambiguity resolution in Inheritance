@@ -1,0 +1,49 @@
+/* 
+43 Ambiguity resolution in Inheritance in the C++
+         */
+
+#include<iostream>
+using namespace std;
+
+class base1{
+    public:
+        void greet(){
+            cout<<"This is Base1's greeting !!"<<endl;
+        }
+};
+
+class base2{
+    public:
+        void greet(){
+            cout<<"This is the Base2's greeting !!"<<endl;
+        }
+};
+
+class derived : public base1 , public base2{
+    public:
+        void greet(){
+            base1::greet();     // like this way we can resolve the ambiguity if same named functions occur in
+                                //              the more than one base classes and derived class 
+        }
+};
+
+int main(){
+    base1 obj1;
+    base2 obj2;
+    derived obj3;
+    
+    obj3.greet();
+    obj2.greet();
+    obj1.greet();
+    cout<<endl;
+    return 0;
+}
+
+
+
+Output :
+
+This is Base1's greeting !!
+This is the Base2's greeting !!
+This is Base1's greeting !!
+
