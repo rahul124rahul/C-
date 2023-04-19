@@ -1,0 +1,28 @@
+/* 
+46   Constructers in Derived Class 
+
+- We can use constructor in derived class in C++
+- If base class constructor does not have any argument , there is no need of any constructor in derived class
+- But there are one or more arguments in the base class constructor , derived class need to pass argument to the base class constructor
+- If both base & derived classes have constructors , base class constructor executed first
+
+
+Constructor in Multiple Inheritance
+- In multiple Inheritance , base classes are constructed in order in which they appear in the class declaration  
+
+=> In multilevel inheritance the constructor are executed in the order of inheritance 
+
+
+Special Syntax:
+- C++ support an special syntax for passing arguments to multiple base classes
+- The constructor of the derived class receives all the arguments at once and then will pass calls to the respective base classes 
+- The body is called after all the constructors are finished executing 
+    Derived-constructor (arg1,arg2,arg3,arg4) : Base1-constructor(arg1,arg2) , Base2-constructor(arg3,arg4) {}
+    
+    
+Special case of Virtual base class:
+- The constructors for virtual base classes are invoked before an non-virtual base class 
+- If there are multiple virtual base classes , they are invoked in the ordered declared
+- Any non-virtual base class are constructed before the derived class constructor is executed first 
+
+*/
