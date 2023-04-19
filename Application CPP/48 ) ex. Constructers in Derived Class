@@ -1,0 +1,78 @@
+
+/* 
+
+48 Code example Constructers in Derived Class in C++
+
+Case 1 : class A : class B                          --> Here constructor of class B is called firstly and then of class A  ie.,  B()->A()
+Case 2 : class A : public B , public C              -->  B()->C()->A()
+Case 3 : class A : public B , virtual public C       -->  C()->B()->A() 
+ */
+
+#include<iostream>
+using namespace std;
+
+class base1{
+    int a;
+    public:
+        base1(int p){
+            a=p;
+            cout<<"\nThe base1 constructor is called "<<endl;
+        }
+
+        void base1no(){
+            cout<<"\nThe integer value in Base1 class is "<<a<<endl;
+        }
+};
+
+class base2{
+    int b;
+    public:
+        base2(int p){
+            b=p;
+            cout<<"\nThe base2 constructor is called "<<endl;
+        }
+
+        void base2no(){
+            cout<<"\nThe integer value in Base2 class is "<<b<<endl;
+        }
+};
+
+class derived : public base2 , public base1 {        // preferance of executing constructors are determined from here 
+    int c;
+    public:
+            // Following is the important step of passing argument to the base and derived constructors
+        derived(int x , int y , int z):base1(x),base2(y){  
+            c=z;
+            cout<<"\nThe derived class constructor is called "<<endl;
+        }
+
+        void derivedno(){
+            cout<<"\nThe integer value of the derived class is "<<c<<endl;
+        }
+};
+
+int main(){
+    derived obj(2,3,4);
+    obj.base1no();
+    obj.base2no();
+    obj.derivedno();
+    cout<<endl;
+    return 0;
+}
+
+
+
+Output :
+
+
+The base2 constructor is called 
+
+The base1 constructor is called 
+
+The derived class constructor is called 
+
+The integer value in Base1 class is 2
+
+The integer value in Base2 class is 3
+
+The integer value of the derived class is 4
