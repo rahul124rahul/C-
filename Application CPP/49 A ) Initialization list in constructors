@@ -1,0 +1,16 @@
+/* 
+49   Initialization list in constructors in C++
+
+Syntax for initialization list in constructor :
+constructor(argument list) : initilization_section{
+    assignment + other code ;
+}  
+
+class Test {
+    int a ; 
+    int b;
+    public:
+        Test(int i , int j):a(i),b(j){
+            constructor_body
+        }
+};
