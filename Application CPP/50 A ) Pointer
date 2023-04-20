@@ -1,0 +1,28 @@
+
+/* 
+Revisiting Pointer new and delete keyword */
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    int a=7;
+    int *ptr = &a;
+    *ptr=77;            // This step is used for overwriting the value store in the particuler variable 
+    cout<<"The address of the variable a is : "<<ptr<<endl;
+    cout<<"The value of a is : "<<*ptr<<endl;
+
+    // int *p = new int (40);                   //  This is also applicable
+    float *p = new float (49.332);              //  Here parenthesis is mendentary
+    cout<<"\nAddress of the following is : "<<p<<endl;
+    cout<<"The value of at address "<<p<<" is "<<*p<<endl;
+    return 0;
+}
+
+
+Output :
+The address of the variable a is : 0x61ff04
+The value of a is : 77
+
+Address of the following is : 0x851458
+The value of at address 0x851458 is 49.332
