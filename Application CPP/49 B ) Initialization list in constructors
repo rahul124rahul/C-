@@ -1,0 +1,30 @@
+// 49 ) Initialization list in constructors
+
+#include<iostream>
+using namespace std;
+
+class Test {
+    int a ; 
+    int b;
+    public:
+        //  In following we are assigning values to variables by using constructor and passing values to object in while creating object
+        Test(int i , int j):a(i),b(j)
+        // Test(int i , int j):a(j),b(i)            // This will also work
+        // Test(int i , int j):a(i),b(a+j)
+        // Test(int i , int j):b(j),a(i+b)          // Here value of a is garbage value
+        {
+            cout<<"The constructor executed "<<endl;
+            cout<<"Value of a is : "<<a<<endl;
+            cout<<"Value of b is : "<<b<<endl;
+        }
+};
+
+int main(){
+    Test t(5,4);
+    
+    return 0;
+}
+
+
+
+Output :
