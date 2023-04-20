@@ -1,0 +1,24 @@
+
+//  Why I am getting the correct value of the 11 instead of getting garbage value
+#include<iostream>
+using namespace std;
+
+int main(){
+    int *arr = new int[3];
+    arr[0] = 12;
+    arr[1] = 21;
+    arr[2] = 11;
+
+    delete []arr;
+    
+    for(int i=0 ; i<3 ;i++){
+        cout<<"The value of the arr["<<i<<"] is "<<arr[i]<<endl;
+    }
+    return 0;
+}
+
+Output :
+
+The value of the arr[0] is 17044432
+The value of the arr[1] is 17039552
+The value of the arr[2] is 11
