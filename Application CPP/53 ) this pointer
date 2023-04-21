@@ -1,0 +1,41 @@
+
+/*
+53   this pointer in C++ */
+
+#include<iostream>
+using namespace std;
+
+class A{
+    int a;
+    public:
+        // M1
+
+        // void setdata(int a){
+        //     this->a=a;          // If we do not use this keyword with arrow operator we get garbage value from here 
+        // }
+
+
+        //  M2
+        A & setdata(int a){
+            this->a=a;
+            return *this;
+        }
+
+        void getdata(){
+            cout<<"The value of a is "<<a<<endl;
+            cout<<"I think this is the address of the 'this' pointer : "<<this<<endl;
+        }
+};
+
+int main(){
+    // This is a keyword which is a pointer which points to the object which invokes the member function
+    A a;
+    a.setdata(5);
+    a.getdata();
+}
+
+
+Output :
+
+The value of a is 5
+I think this is the address of the 'this' pointer : 0x61ff0c
