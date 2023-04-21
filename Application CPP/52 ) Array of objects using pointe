@@ -1,0 +1,80 @@
+
+
+/* 
+52    Array of objects using pointer in C++
+            */
+
+#include<iostream>
+using namespace std;
+
+class shopitem{
+    int id ;
+    float price;
+    public:
+        void setdata(int a , float b){
+            id=a;
+            price=b;
+        }
+        void getdata(void){
+            cout<<"\nThe Id of the item is "<<id<<endl;
+            cout<<"The price of the item is "<<price<<endl<<endl;
+        }
+};
+
+int main(){
+    int size=3;
+    // int* ptr = &size;
+    // int* ptr = new int[45];    
+    shopitem* ptr = new shopitem[size];
+    shopitem* ptrtemp = ptr;
+    int p;
+    float q;
+
+    for(int i=0 ; i<size ; i++){
+        cout<<"\nEnter Id and price of the item no : "<<i+1<<endl;
+        cin>>p>>q;
+        // (*ptr).setdata(p,q);
+        ptr->setdata(p,q);
+        ptr++;
+    }
+
+    for(int i=0 ; i<size ; i++){
+        cout<<"\nItem number : "<<i+1;
+        ptrtemp->getdata();
+        ptrtemp++;
+    }
+
+    return 0;
+}               
+
+
+
+
+
+Output :
+
+Enter Id and price of the item no : 1
+1234
+430
+
+Enter Id and price of the item no : 2
+2345
+555
+
+Enter Id and price of the item no : 3
+3456
+345
+
+Item number : 1
+The Id of the item is 1234
+The price of the item is 430
+
+
+Item number : 2
+The Id of the item is 2345
+The price of the item is 555
+
+
+Item number : 3
+The Id of the item is 3456
+The price of the item is 345
