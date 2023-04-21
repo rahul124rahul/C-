@@ -1,0 +1,16 @@
+/* 
+                    54   Polymorphism in C++ 
+
+Polymorphism :
+- one name and multiple forms
+eg. function overloading , operator overloading , virtual function
+
+types:  1) Compile time polymorphism     it also called as early binding  or  static binding
+           - compile time polymorphism in C++ achieved using: 
+             1.1 function overloading 
+             1.2 operator overloading
+
+        2) Run time polymorphism       it also called as late binding
+            - compile time polymorphism in C++ achieved using: 
+            2.1 virtual function 
+*/
