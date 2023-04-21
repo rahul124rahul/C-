@@ -1,0 +1,65 @@
+/* 
+51    Pointer to Object and Arrow operator in C++
+ */
+
+#include<iostream>
+using namespace std;
+
+class complex{
+    int real, imaginary;
+    public:
+        void getdata(){
+            cout<<"\nThe real part of the complex no is : "<<real<<endl;
+            cout<<"The imaginary part of the complex no is : "<<imaginary<<endl<<endl;
+        }
+
+        void setdata(int a , int b){
+            real=a;
+            imaginary=b;
+        }
+};
+
+int main(){     // Following methods of using pointer are very important
+
+    // M1
+    complex c;
+    c.setdata(3,4);
+    c.getdata();
+
+    // M2
+    complex c2;
+    complex* ptr = & c2;
+    (*ptr).setdata(6,7);
+    (*ptr).getdata();
+
+    // M3
+    complex* ptr2 = new complex;
+    (*ptr2).setdata(11,12);
+    (*ptr2).getdata();
+
+    // M4
+    complex* ptr3 = new complex;
+    ptr3->setdata(45,34);           // Here the arrow operator is used 
+    ptr3->getdata();
+    
+    return 0;
+}
+
+
+
+Output :
+
+The real part of the complex no is : 3
+The imaginary part of the complex no is : 4
+
+
+The real part of the complex no is : 6
+The imaginary part of the complex no is : 7
+
+
+The real part of the complex no is : 11
+The imaginary part of the complex no is : 12
+
+
+The real part of the complex no is : 45
+The imaginary part of the complex no is : 34
