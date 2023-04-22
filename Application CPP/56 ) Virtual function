@@ -1,0 +1,41 @@
+/* 
+56   Virtual function in C++         */
+
+#include<iostream>
+using namespace std;
+class base_class{
+    public:
+        int var_b=1;
+            // The following will allow compiler to run display of derived class,When base class pointer pointing to the derived class object unlike in last program   ie, in 55 
+        virtual void display(){
+            cout<<"1 displaying base class variable : "<<var_b<<endl;   // Here binding is done at runtime 
+        }
+};
+
+class deerived : public base_class{
+    public:
+        int var_d=2;
+        void display(){
+            cout<<"\n2 displaying base class variable : "<<var_b<<endl;
+            cout<<"2 displaing derived class variable : "<<var_d<<endl;
+        }
+};
+
+int main(){
+    base_class* ptr_b;
+    base_class obj_b;
+    deerived obj_d;
+    ptr_b = &obj_d;         // Pointing base class pointer to derived class object
+    // ptrb->var_b=34;       // This will throw an error 
+    ptr_b->display();
+    cout<<endl;
+    return 0;
+}
+
+
+
+
+Output :
+
+2 displaying base class variable : 1
+2 displaing derived class variable : 2
