@@ -1,0 +1,105 @@
+
+
+/* 
+57    Virtual function example creation Rule in C++  
+
+        Rules for virtual function:
+            1. THey can not be static
+            2. They are accessed by object pointers
+            3. Virtual function can be a friend of the another class
+            4. A virtual function in the base class might not be used 
+            5. If a virtual function is defined in the base class, there is no need of redefining it in derived class     */
+
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+class something{
+    protected:
+        string title;
+        float rating;
+    public:
+        something(string s , float f){
+            title=s;
+            rating=f;
+        }    
+        virtual void display(){}; // This helps to call correct function of the that class whose object is pointed to this(base) class pointer
+};
+
+class some_video : public something{
+    float v_len;
+    public: 
+        some_video(string s , float f , float vl):something(s,f){
+            v_len=vl;
+        }
+        void display(){
+            cout<<"\nThis is an amazing video with title : "<<title<<endl;
+            cout<<"Rating of the video is "<<rating<<" out of 5 stars."<<endl;
+            cout<<"Length of the video is "<<v_len<<" minutes "<<endl;
+        }
+};
+
+class some_text : public something {
+    int words;
+    public:
+        some_text(string s, float f , int w) : something(s,f){
+            words=w;
+        }
+        void display(){
+            cout<<"\nThe amazing tutorial with title : "<<title<<endl;
+            cout<<"The rating of the text tutorial is "<<rating<<" out of 5 stars."<<endl;
+            cout<<"No of words in this text tutorial is : "<<words<<endl;
+        }
+};
+
+int main(){
+    string title;
+    float rating , v_len;
+    int words;
+
+    // for the video
+    title="DARE TO DO !!!";
+    v_len=4.32;
+    rating=4.5;
+    some_video video(title,rating,v_len);
+    video.display();
+
+    //  for the text 
+    title="The Old Mam And The Sea";
+    rating=4.2;
+    words=101;
+    some_text tex(title,rating,words);
+    tex.display();
+
+
+        // We can do in this way also
+
+    something* some[2]; // Here pointer of the base class is created 
+    some[0] = &video;       // pointer of the base class pointing to the object of the derived class 
+    some[1] = &tex;         //     -//-
+    some[0]->display();         // Function is called using the arrow operator with the pointer
+    some[1]->display();
+
+    cout<<endl;
+    return 0;
+}
+
+
+
+Output :
+
+This is an amazing video with title : DARE TO DO !!!
+Rating of the video is 4.5 out of 5 stars.
+Length of the video is 4.32 minutes
+
+The amazing tutorial with title : The Old Mam And The Sea
+The rating of the text tutorial is 4.2 out of 5 stars.
+No of words in this text tutorial is : 101
+
+This is an amazing video with title : DARE TO DO !!!
+Rating of the video is 4.5 out of 5 stars.
+Length of the video is 4.32 minutes
+
+The amazing tutorial with title : The Old Mam And The Sea
+The rating of the text tutorial is 4.2 out of 5 stars.
+No of words in this text tutorial is : 101
