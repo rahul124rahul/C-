@@ -1,0 +1,66 @@
+
+
+/* 
+55   Pointer to Derived class in C++ */
+
+#include<iostream>
+using namespace std;
+
+class base {
+    public:
+        int baseno;
+        void display(){
+            cout<<"\nThe integer value of the base class is "<<baseno<<endl;
+        }
+};
+
+class derived : public base{
+    public:
+        int dno;
+        void display(){
+            cout<<"\nThe  integer value of the base class is "<<baseno<<endl;
+            cout<<"The integer value of the derived class is "<<dno<<endl<<endl;
+        }
+};
+
+int main(){
+    base* bp1;
+    base bo1;
+    derived* dp1;
+    derived do1;
+
+    bp1 = &bo1;      // We can point  base class pointer to base class object 
+    bp1->baseno=83;
+    bp1->display();
+
+
+    bp1 = &do1;      // We can point  base class pointer to derived class object 
+    bp1->baseno=23;
+    // bp1->dno=45;         // This we throw an error ie, We can't store value in variable of derived class using  point of base class
+    bp1->display();
+
+    
+    dp1 = &do1;     // We can point derived class pointer to derived class object
+    dp1->baseno=56;
+    dp1->dno=78;
+    dp1->display();
+
+    // dp1 = &bo1;     // We can't point derived class pointer to base class object
+    // dp1->baseno=56;
+    // dp1->dno=78;
+    // dp1->display();
+
+
+    return 0;
+}
+
+
+
+Output :
+
+The integer value of the base class is 83
+
+The integer value of the base class is 23
+
+The  integer value of the base class is 56
+The integer value of the derived class is 78
